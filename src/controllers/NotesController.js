@@ -10,17 +10,15 @@ class NotesController {
             description,
             rating,
             user_id
-        });
-        console.log(note_id)
+        });        
 
-        const tagsInsert = tags.map(name => {
+        const tagsInsert = tags.map(tag => {
             return {                
                 note_id,
-                name,
+                name: tag,
                 user_id
             }
         });
-        console.log(tagsInsert)
 
         await knex("tags").insert(tagsInsert);
 
